@@ -43,9 +43,9 @@ class AnimeRecommender:
 
         # Setup local LM Studio connection
         self.llm = ChatOpenAI(
-            base_url="http://localhost:1234/v1",
+            base_url=os.getenv("LLM_BASE_URL", "http://localhost:1234/v1"),
             api_key="not-needed",
-            model="qwen2.5-7b-instruct",
+            model=os.getenv("LLM_MODEL", "qwen2.5-7b-instruct"),
             temperature=0.0,
         )
         self.retriever = self.vector_store.as_retriever(search_kwargs={"k": 3})

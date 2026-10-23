@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: llmops-container
-        image: llmops-app:1.0.0  # Use local image
+        image: llmops-app:1.0.1  # Use local image
         imagePullPolicy: IfNotPresent
         ports:
           - containerPort: 8501
