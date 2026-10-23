@@ -23,6 +23,7 @@ RUN apt-get update && apt-get install -y \
 # (Adjust these filenames if you are using requirements.txt instead)
 COPY pyproject.toml uv.lock ./
 
+RUN uv pip install --system --no-cache --index-url https://pytorch.org torch
 # Install project dependencies without caching index lookups
 RUN uv pip install --system --no-cache -r pyproject.toml
 
